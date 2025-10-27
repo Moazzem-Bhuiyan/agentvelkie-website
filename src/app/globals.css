@@ -1,23 +1,26 @@
+@import 'tailwindcss';
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5e2e2;
+  --foreground: #f7e4e4;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f2ffff;
+    --foreground: #f7e0e0;
   }
 }
 
 html,
 body {
   max-width: 100vw;
+  min-height: 100vh;
+  background-color: white;
   overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
+  color: black;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,4 +42,23 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* marqeuue*/
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
