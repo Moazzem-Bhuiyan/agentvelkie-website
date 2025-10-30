@@ -1,19 +1,15 @@
-"use client";
+'use client';
 
-
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function AnimateTextOnHover({ children, link, path }) {
   const currentPathname = usePathname();
 
   if (link) {
     return (
-      <Link
-        href={link}
-        className={`block ${currentPathname === path && "font-bold"}`}
-      >
+      <Link href={link} className={`block ${currentPathname === path && 'font-bold'}`}>
         <Container>{children}</Container>
       </Link>
     );
@@ -31,21 +27,20 @@ function Container({ children, path, currentPathname }) {
     <motion.div
       className={`
         relative max-h-max max-w-max overflow-hidden 
-        ${currentPathname === path && "font-bold text-orange-500"
-        }`}
+        ${currentPathname === path && 'font-bold text-[#166785]'}`}
       initial="initial"
       whileHover="hovered"
       style={{ lineHeight: 1.2 }}
     >
       <motion.div>
-        {children.split("").map((l, idx) => (
+        {children.split('').map((l, idx) => (
           <motion.span
             variants={{
               initial: {
                 y: 0,
               },
               hovered: {
-                y: "-100%",
+                y: '-100%',
               },
             }}
             transition={{
@@ -56,17 +51,17 @@ function Container({ children, path, currentPathname }) {
             key={idx + new Date().toISOString()}
             className="inline-block"
           >
-            {l === " " ? <span>&nbsp;</span> : l}
+            {l === ' ' ? <span>&nbsp;</span> : l}
           </motion.span>
         ))}
       </motion.div>
 
       <motion.div className="absolute inset-0">
-        {children.split("").map((l, idx) => (
+        {children.split('').map((l, idx) => (
           <motion.span
             variants={{
               initial: {
-                y: "100%",
+                y: '100%',
               },
               hovered: {
                 y: 0,
@@ -80,7 +75,7 @@ function Container({ children, path, currentPathname }) {
             key={idx + new Date().toISOString()}
             className="inline-block"
           >
-            {l === " " ? <span>&nbsp;</span> : l}
+            {l === ' ' ? <span>&nbsp;</span> : l}
           </motion.span>
         ))}
       </motion.div>

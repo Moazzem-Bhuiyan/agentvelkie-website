@@ -5,6 +5,8 @@ import ResponsiveContainer from '@/Component/ResponsiveContainer/ResponsiveConta
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
 import { mainTheme } from '@/theme/mainTheme';
+import NextJsTopLoader from '@/Component/Shared/NextTopLoader/NextTopLoader';
+import { Footer } from '@/Component/Shared/Footer/Footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,6 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <NextJsTopLoader />
         <Navbar />
         <AntdRegistry>
           <ConfigProvider theme={mainTheme}>
@@ -33,8 +36,8 @@ export default function RootLayout({ children }) {
                 <h1 className="text-3xl font-bold  text-center uppercase !my-5">Velkii Agent</h1>
                 <div className="overflow-hidden whitespace-nowrap border-y border-gray-300 py-2 bg-white">
                   <div className=" cursor-pointer text-lg font-bold text-center uppercase text-red-600 !py-2">
-                    হোয়াটসাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে
-                    তা গ্রহনযোগ্য হবে না
+                    হোয়াটসঅ্যাপ ব্যতীত অন্য কোনো অ্যাপের মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না, এবং
+                    করলে তা গ্রহণযোগ্য হবে না
                   </div>
                 </div>
                 {children}
@@ -42,6 +45,8 @@ export default function RootLayout({ children }) {
             </ResponsiveContainer>
           </ConfigProvider>
         </AntdRegistry>
+
+        <Footer />
       </body>
     </html>
   );

@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import AnimateTextOnHover from './AnimateTextOnHover/AnimateTextOnHover';
+import logo from '@/assets/image/logo.png';
+import Image from 'next/image';
 
 // Links
 const LINKS = [
@@ -41,10 +43,10 @@ export default function Navbar() {
   return (
     <div className="!mb-10 !mt-8 !lg:mb-20 flex items-center justify-center fixed w-full top-0 z-50">
       {/* Desktop Version */}
-      <div className="mx-auto hidden items-center justify-between gap-x-10 rounded-[40px] bg-black !px-4 !py-5 lg:flex lg:w-[75%] !2xl:w-3/4">
+      <div className="mx-auto hidden items-center justify-between gap-x-10 rounded-[40px] bg-black px-4  lg:flex lg:w-[75%] !2xl:w-3/4">
         {/* Left ----- Logo */}
         <Link href="/">
-          {/* <Image src={logo} alt="Logo" className="mx-auto" width={100} height={1000} /> */}
+          <Image src={logo} alt="Logo" className="mx-auto !h-[80px]" width={100} height={100} />
         </Link>
 
         {/* Center ------ Links */}
@@ -55,15 +57,13 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
-      
       </div>
 
       {/* Mobile Version */}
       <div className="lg:hidden w-full fixed top-0 left-0 bg-black/50 !z-50">
         <div className="flex items-center justify-between !p-4 bg-black/70">
           <Link href="/">
-            {/* <Image src={logo} alt="Logo" className="mx-auto" width={60} height={60} /> */}
+            <Image src={logo} alt="Logo" className="mx-auto" width={60} height={60} />
           </Link>
           <motion.div
             className="text-white"
@@ -107,7 +107,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            
           </motion.div>
         )}
       </div>

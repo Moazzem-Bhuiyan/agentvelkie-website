@@ -2,6 +2,16 @@
 import { WhatsAppOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 
+// Fisher-Yates shuffle function
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export default function HomeCallListTable() {
   const agentData = [
     {
@@ -165,6 +175,12 @@ export default function HomeCallListTable() {
       admin: 'COMPLAIN',
     },
   ];
+
+  // Keep first item fixed, shuffle the rest on every page load
+  const [first, ...rest] = agentData;
+  const shuffledRest = shuffleArray(rest);
+  const dataSource = [first, ...shuffledRest];
+
   const columns = [
     {
       title: 'TYPE',
@@ -219,11 +235,12 @@ export default function HomeCallListTable() {
       ),
     },
   ];
+
   return (
     <div className="!mt-10">
       <Table
         columns={columns}
-        dataSource={agentData}
+        dataSource={dataSource}
         pagination={{ pageSize: 50 }}
         scroll={{ x: 'max-content' }}
         bordered
