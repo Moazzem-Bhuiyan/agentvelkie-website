@@ -187,26 +187,40 @@ export default function ServiceTypeTable() {
     {
       title: 'PHONE AND LINK',
       key: 'phone',
+      align: 'center',
       render: (_, record) => (
-        <a
-          href={`https://wa.me/${record.phone.replace(/\D/g, '')}`}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+          }}
+          // className="flex justify-center items-center bg-green-500 text-white  w-8 h-10 !py-1 "
         >
-          <WhatsAppOutlined style={{ fontSize: '20px', color: '#25D366' }} />
-        </a>
+          <a
+            href={`https://wa.me/${record.phone.replace(/\D/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-block' }}
+            className="!flex !justify-center !items-center !bg-green-500 text-white  w-6 h-6  "
+          >
+            <WhatsAppOutlined style={{ fontSize: '18px', color: 'white' }} />
+          </a>
+        </div>
       ),
-      className: 'table-header-cell',
     },
     {
       title: 'PHONE NUMBER',
       dataIndex: 'phone',
       key: 'phoneNumber',
+      align: 'center',
     },
     {
       title: 'ADMIN',
       dataIndex: 'admin',
       key: 'admin',
+      align: 'center',
       width: 120,
       render: (text, record) => (
         <a
@@ -220,7 +234,7 @@ export default function ServiceTypeTable() {
     },
   ];
   return (
-    <div className="!mt-10">
+    <div className="">
       <Table
         columns={columns}
         dataSource={agentData}

@@ -27,7 +27,7 @@ function Container({ children, path, currentPathname }) {
     <motion.div
       className={`
         relative max-h-max max-w-max overflow-hidden 
-        ${currentPathname === path && 'font-bold text-[#166785]'}`}
+        ${currentPathname === path && 'font-bold text-[#f7be24]'}`}
       initial="initial"
       whileHover="hovered"
       style={{ lineHeight: 1.2 }}

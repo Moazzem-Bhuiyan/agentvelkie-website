@@ -41,18 +41,18 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="!mb-10 !mt-8 !lg:mb-20 flex items-center justify-center fixed w-full top-0 z-50">
+    <div className="!mb-10  flex items-center justify-center  w-full top-0 z-50 !mx-auto bg-[#536cad]">
       {/* Desktop Version */}
-      <div className="mx-auto hidden items-center justify-between gap-x-10 rounded-[40px] bg-black px-4  lg:flex lg:w-[75%] !2xl:w-3/4">
+      <div className=" h-[100px]   hidden items-center justify-between gap-x-10 lg:w-[65%] !mx-auto  px-10  lg:flex  w-full !2xl:w-full">
         {/* Left ----- Logo */}
         <Link href="/">
-          <Image src={logo} alt="Logo" className="mx-auto !h-[80px]" width={100} height={100} />
+          <Image src={logo} alt="Logo" className="mx-auto  " width={200} height={200} />
         </Link>
 
         {/* Center ------ Links */}
         <div className="flex flex-grow items-center justify-center gap-x-10">
           {LINKS.map((link) => (
-            <Link key={link.key} href={link.route} className="font-medium !text-white">
+            <Link key={link.key} href={link.route} className="font-medium !text-white text-sm">
               <AnimateTextOnHover path={link.route}>{link.label}</AnimateTextOnHover>
             </Link>
           ))}

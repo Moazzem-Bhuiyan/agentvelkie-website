@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ResponsiveContainer = ({ children, className, id, style }) => {
@@ -6,7 +5,7 @@ const ResponsiveContainer = ({ children, className, id, style }) => {
     <div className="flex justify-center  ">
       <section
         className={`
-           mx-auto flex w-full max-w-[1920px] !px-5 md:!px-10 lg:w-[90%] lg:px-0 ${className}`}
+           mx-auto flex w-full max-w-[1920px] !px-5 md:!px-10 lg:w-[70%] lg:px-0 ${className}`}
         id={id}
         style={style}
       >

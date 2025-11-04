@@ -6,7 +6,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 export function Footer() {
   return (
     <footer className="!px-4 w-full !my-10 ">
-      <div className="max-w-full mx-auto flex flex-col items-center gap-4 border !p-5">
+      <div className="max-w-full mx-auto flex flex-col items-center gap-4  !p-5">
         {/* Copyright Text */}
         <div className="text-center text-sm text-gray-800">
           <p>

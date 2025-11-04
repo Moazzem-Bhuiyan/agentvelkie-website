@@ -31,16 +31,19 @@ export default function RootLayout({ children }) {
         <Navbar />
         <AntdRegistry>
           <ConfigProvider theme={mainTheme}>
-            <ResponsiveContainer className={'md:!mt-[115px] !mt-20'}>
+            <ResponsiveContainer className={''}>
               <div className="w-full">
-                <h1 className="text-3xl font-bold  text-center uppercase !my-5">Velkii Agent</h1>
-                <div className="overflow-hidden whitespace-nowrap border-y border-gray-300 py-2 bg-white">
-                  <div className=" cursor-pointer text-lg font-bold text-center uppercase text-red-600 !py-2">
+                <h1 className="text-[10px] !py-1 border bg-[#536cad] text-white font-bold  text-center uppercase">
+                  Velkii Agent
+                </h1>
+                <div className="overflow-hidden whitespace-nowrap border-y border border-white py-2 bg-[#000c63]">
+                  <div className=" cursor-pointer text-[10px] font-bold text-center uppercase text-white !py-2">
                     হোয়াটসঅ্যাপ ব্যতীত অন্য কোনো অ্যাপের মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না, এবং
                     করলে তা গ্রহণযোগ্য হবে না
                   </div>
                 </div>
                 {children}
+                <h1 className="text-[10px] !py-2 border bg-[#536cad] text-white font-bold  text-center uppercase"></h1>
               </div>
             </ResponsiveContainer>
           </ConfigProvider>

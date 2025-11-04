@@ -21,22 +21,23 @@ export const mainTheme = {
     },
 
     Table: {
-      // headerBg: "var(--primary-blue)",
-      headerBg: '#166785',
-      headerSplitColor: 'white',
-      headerColor: 'rgb(248, 250, 252)',
-      colorBgContainer: 'var(--demin-primary-00)',
-      cellFontSize: 16,
-      colorText: 'black',
-      borderColor: 'rgba(255, 255, 255, 0.18)',
-      footerColor: 'rgba(31, 41, 55, 0.88)',
-      footerBg: 'rgb(79, 106, 167)',
-      headerFilterHoverBg: 'transparent',
-      rowHoverBg: '#c2c0c0',
-      filterDropdownMenuBg: '#fff',
-      filterDropdownBg: '#fff',
+      headerBg: '#536cad', // Header background white
+      headerColor: '#ffffff', // Header text black
+      colorBgContainer: '#ffffff', // Table background white
+      colorText: '#000000', // Table text black
+      borderColor: '#ffffff', // Border white (effectively hidden)
+      headerSplitColor: '#ffffff',
+      rowHoverBg: '#f5f5f5', // Light gray hover effect
+      footerBg: '#ffffff',
+      footerColor: '#000000',
       colorPrimary: '#1B70A6',
       colorInfo: '#1B70A6',
+      borderColor: '#d2d2d6',
+      cellFontSize: 10,
+      cellPaddingBlock: 6,
+      cellPaddingInline: 12,
+      borderRadius: 0,
+      headerBorderRadius: 0,
     },
 
     Button: {

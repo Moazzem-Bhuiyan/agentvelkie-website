@@ -1,13 +1,13 @@
 @import 'tailwindcss';
 :root {
-  --background: #f5e2e2;
-  --foreground: #f7e4e4;
+  --background: #ffbd30;
+  --foreground: #ffbd30;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f2ffff;
-    --foreground: #f7e0e0;
+    --background: #ffbd30;
+    --foreground: #ffbd30;
   }
 }
 
@@ -15,7 +15,7 @@ html,
 body {
   max-width: 100vw;
   min-height: 100vh;
-  background-color: white;
+  background-color: #ffbd30;
   overflow-x: hidden;
 }
 
@@ -61,4 +61,13 @@ a {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.center-aligned-row td {
+  vertical-align: middle !important;
+}
+
+/* Optional: Header ও center */
+.ant-table-thead th {
+  text-align: center !important;
 }
