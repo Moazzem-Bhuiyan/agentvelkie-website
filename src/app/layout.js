@@ -7,6 +7,7 @@ import { ConfigProvider } from 'antd';
 import { mainTheme } from '@/theme/mainTheme';
 import NextJsTopLoader from '@/Component/Shared/NextTopLoader/NextTopLoader';
 import { Footer } from '@/Component/Shared/Footer/Footer';
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,10 +30,15 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextJsTopLoader />
         <Navbar />
+        <Toaster />
         <AntdRegistry>
           <ConfigProvider theme={mainTheme}>
             <ResponsiveContainer className={''}>
               <div className="w-full">
+                <div className="flex  justify-between items-center w-1/3 !mx-auto">
+                  <h1 className=" text-center"> Proxy User link - 1 </h1>
+                  <h1 className=" text-center"> Proxy User link - 1 </h1>
+                </div>
                 <h1 className="text-[10px] !py-1 border bg-[#536cad] text-white font-bold  text-center uppercase">
                   Velkii Agent
                 </h1>

@@ -1,209 +1,73 @@
 'use client';
+
+import { useEffect, useState } from 'react';
 import { WhatsAppOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 
-export default function ServiceTypeTable() {
-  const agentData = [
-    {
-      key: '1',
-      type: 'Service',
-      name: '[ADMIN] Kadir Malik',
-      id: 1,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '2',
-      type: 'Service',
-      name: 'Gentlemen',
-      id: 68,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '3',
-      type: 'Service',
-      name: 'Ag Tamim',
-      id: 49,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '4',
-      type: 'Service',
-      name: 'Rip',
-      id: 94,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '5',
-      type: 'Service',
-      name: 'Laboni',
-      id: 95,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '6',
-      type: 'Service',
-      name: 'Ag Rahmat',
-      id: 111,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '7',
-      type: 'Service',
-      name: 'Ikm Vai',
-      id: 38,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '8',
-      type: 'Service',
-      name: 'Ashik Vai',
-      id: 100,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '9',
-      type: 'Service',
-      name: 'Rihad',
-      id: 81,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '10',
-      type: 'Service',
-      name: 'Ag Tamim',
-      id: 110,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '11',
-      type: 'Service',
-      name: 'UDT SMS [Bkash]',
-      id: 29,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '12',
-      type: 'Service',
-      name: 'Ag Nobab',
-      id: 12,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '13',
-      type: 'Service',
-      name: 'Hasad AS',
-      id: 79,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '14',
-      type: 'Service',
-      name: 'Mashrafe Murtaza',
-      id: 91,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '15',
-      type: 'Service',
-      name: 'Ricky Vai',
-      id: 77,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '16',
-      type: 'Service',
-      name: 'Doni Vai',
-      id: 89,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '17',
-      type: 'Service',
-      name: 'Shyan Khan',
-      id: 56,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '18',
-      type: 'Service',
-      name: 'Rohan Khan',
-      id: 28,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '19',
-      type: 'Service',
-      name: 'Tarif Khan',
-      id: 97,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-    {
-      key: '20',
-      type: 'Service',
-      name: 'Nokab Bhai',
-      id: 88,
-      phone: '+8801723448301',
-      admin: 'COMPLAIN',
-    },
-  ];
+export default function AdminTypetable() {
+  const [agentData, setAgentData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch API data
+  const fetchAgents = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/velki-agent?type=service`);
+      const result = await res.json();
+
+      if (result?.success) {
+        const formattedData = result.data?.data?.map((item, index) => ({
+          key: item._id,
+          type: item.type,
+          name: item.name,
+          id: item.id,
+          phone: item.phoneNumber,
+          admin: 'COMPLAIN',
+        }));
+
+        setAgentData(formattedData);
+      }
+    } catch (error) {
+      console.error('Error fetching agents:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchAgents();
+  }, []);
+
   const columns = [
     {
       title: 'TYPE',
       dataIndex: 'type',
       key: 'type',
-      className: 'table-header-cell',
+      align: 'center',
     },
     {
       title: 'NAME',
       dataIndex: 'name',
       key: 'name',
-      className: 'table-header-cell',
+      align: 'center',
     },
     {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
-      className: 'table-header-cell',
+      align: 'center',
     },
     {
       title: 'PHONE AND LINK',
       key: 'phone',
       align: 'center',
       render: (_, record) => (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-          }}
-          // className="flex justify-center items-center bg-green-500 text-white  w-8 h-10 !py-1 "
-        >
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <a
-            href={`https://wa.me/${record.phone.replace(/\D/g, '')}`}
+            href={`https://wa.me/${record.phone?.replace(/\D/g, '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: 'inline-block' }}
-            className="!flex !justify-center !items-center !bg-green-500 text-white  w-6 h-6  "
+            className="!flex !justify-center !items-center !bg-green-500 text-white w-6 h-6 rounded"
           >
             <WhatsAppOutlined style={{ fontSize: '18px', color: 'white' }} />
           </a>
@@ -224,7 +88,7 @@ export default function ServiceTypeTable() {
       width: 120,
       render: (text, record) => (
         <a
-          href={`https://wa.me/${record.phone.replace(/\D/g, '')}`}
+          href={`https://wa.me/${record.phone?.replace(/\D/g, '')}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -233,14 +97,16 @@ export default function ServiceTypeTable() {
       ),
     },
   ];
+
   return (
-    <div className="">
+    <div>
       <Table
         columns={columns}
         dataSource={agentData}
-        pagination={{ pageSize: 50 }}
-        scroll={{ x: 'max-content' }}
+        loading={loading}
+        pagination={false}
         bordered
+        scroll={{ x: 'max-content' }}
       />
     </div>
   );
