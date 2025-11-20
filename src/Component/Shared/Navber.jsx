@@ -60,8 +60,8 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Version */}
-      <div className="lg:hidden w-full fixed top-0 left-0 bg-black/50 !z-50">
-        <div className="flex items-center justify-between !p-4 bg-black/70">
+      <div className="lg:hidden w-full fixed top-0 left-0 bg-[#ffbd30] !z-50">
+        <div className="flex items-center justify-between !p-4 bg-[#ffbd30]">
           <Link href="/">
             <Image src={logo} alt="Logo" className="mx-auto" width={60} height={60} />
           </Link>
