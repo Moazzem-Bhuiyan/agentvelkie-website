@@ -35,10 +35,26 @@ export default function RootLayout({ children }) {
           <ConfigProvider theme={mainTheme}>
             <ResponsiveContainer className={''}>
               <div className="w-full">
-                <div className="flex  justify-between items-center w-1/3 !mx-auto">
-                  <h1 className=" text-center"> Proxy User link - 1 </h1>
-                  <h1 className=" text-center"> Proxy User link - 1 </h1>
+                <div className="flex justify-between items-center w-full !mx-auto">
+                  <h1 className="text-center">
+                    <a
+                      href="https://jaya99.live/register?referral_code=Luckywin"
+                      target="_blank"
+                      className="block w-[1000px]  h-10"
+                      style={{ opacity: 0 }}
+                    ></a>
+                  </h1>
+
+                  <h1 className="text-center">
+                    <a
+                      href="https://jaya99.live/register?referral_code=Luckywin"
+                      target="_blank"
+                      className="block w-[1000px]  h-10"
+                      style={{ opacity: 0 }}
+                    ></a>
+                  </h1>
                 </div>
+
                 <h1 className="text-[10px] !py-1 border bg-[#536cad] text-white font-bold  text-center uppercase">
                   Velkii Agent
                 </h1>

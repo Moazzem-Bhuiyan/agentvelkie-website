@@ -16,7 +16,7 @@ export function Footer() {
             </a>{' '}
             | Powered by{' '}
             <a href="#" className="text-blue-600 hover:underline font-semibold">
-              MAHI-HASAN
+              Kabir Malik
             </a>
           </p>
         </div>
